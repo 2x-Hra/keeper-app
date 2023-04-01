@@ -25,3 +25,5 @@ const notes = [
     }
   ];
   
+
+export { notes };
