@@ -5,8 +5,18 @@ function CreateArea(props) {
     title:"",
     content:""
     })
-    function handleChange(){
-
+    function handleChange(event){
+        const {name, value} = event.target;
+        setNote( (prevValues) => {
+            return {
+                ...prevValues,
+                [name]:value
+            }
+        })
+    }
+    function submitNote(event){
+        props.onAdd(note);
+        event.preventDefault();
     }
   return (
     <div>
@@ -22,7 +32,7 @@ function CreateArea(props) {
             placeholder="Take a note..." 
             rows="3"  />
         <button 
-        
+        onClick={submitNote}
         >Add</button>
       </form>
     </div>
